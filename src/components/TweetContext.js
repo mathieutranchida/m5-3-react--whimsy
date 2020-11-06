@@ -21,10 +21,33 @@ export const TweetProvider = ({ children }) => {
     const date = moment().format(`LT - ll`);
 
     // Exercise 3
-    const [numOfLikes, setNumOfLikes] = useState(460);
-    const [numOfRetweets, setNumOfRetweets] = useState(65);
-    const [isLiked, setIsLiked] = useState(false);
-    const [isRetweeted, setIsRetweeted] = useState(false);
+    let [numOfLikes, setNumOfLikes] = useState(460);
+    let [numOfRetweets, setNumOfRetweets] = useState(65);
+    let [isLiked, setIsLiked] = useState(false);
+    let [isRetweeted, setIsRetweeted] = useState(false);
+
+    // Exercise 4
+    const handleToggleLike = () => {
+        setIsLiked(() => {
+            return !isLiked
+        })
+        if (isLiked == true) {
+            setNumOfLikes(numOfLikes - 1);
+        } else if (isLiked == false) {
+            setNumOfLikes(numOfLikes + 1);
+        }
+    }
+
+    const handleToggleRetweet = () => {
+        setIsRetweeted(() => {
+            return !isRetweeted
+        })
+        if (isRetweeted == true) {
+            setNumOfRetweets(numOfRetweets - 1);
+        } else if (isRetweeted == false) {
+            setNumOfRetweets(numOfRetweets + 1);
+        }
+    }
 
     return (
         <TweetContext.Provider
@@ -51,6 +74,10 @@ export const TweetProvider = ({ children }) => {
                 setIsLiked,
                 isRetweeted,
                 setIsRetweeted,
+
+                // Exercise 4
+                handleToggleLike,
+                handleToggleRetweet,
             }}
         >
             {children}
