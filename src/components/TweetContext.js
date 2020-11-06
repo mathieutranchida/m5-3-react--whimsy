@@ -15,7 +15,6 @@ export const TweetProvider = ({ children }) => {
     const avatarSrc = avatar;
     // const isRetweetedByCurrentUser = false;
     // const isLikedByCurrentUser = false;
-    const [isHovered, setIsHovered] = React.useState(false);
 
     // Exercise 2
     const date = moment().format(`LT - ll`);
@@ -59,8 +58,6 @@ export const TweetProvider = ({ children }) => {
                 avatarSrc,
                 // isRetweetedByCurrentUser,
                 // isLikedByCurrentUser,
-                isHovered,
-                setIsHovered,
 
                 // Exercise 2
                 date,

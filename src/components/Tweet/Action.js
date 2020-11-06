@@ -7,10 +7,7 @@ import { TweetContext, TweetProvider } from "../TweetContext";
 
 
 const Action = ({ color, size, children, onClick }) => {
-  const {
-    isHovered,
-    setIsHovered,
-  } = useContext(TweetContext);
+  const [isHovered, setIsHovered] = React.useState(false);
 
   return (
     <Wrapper

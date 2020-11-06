@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Heart from "./Heart";
 import PoppingCircle from "./PoppingCircle";
+import ScaleIn from "./ScaleIn";
 
 import { TweetContext } from "../TweetContext";
 
@@ -15,8 +16,18 @@ const LikeButton = ({ size = 40 }) => {
 
   return (
     <Wrapper style={{ width: size, height: size }}>
-      {isLiked && <PoppingCircle size={size} color="#E790F7" />}
-      <Heart width={heartSize} isToggled={isLiked} />
+      <Foreground>
+        {isLiked ? (
+          <ScaleIn>
+            <Heart width={heartSize} isToggled={isLiked} />
+          </ScaleIn>
+        ) : (
+          <Heart width={heartSize} isToggled={isLiked} />
+        )}
+      </Foreground>
+      <Background>
+        {isLiked && <PoppingCircle size={size} color="#E790F7" />}
+      </Background>
     </Wrapper>
   );
 };
@@ -26,6 +37,16 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const Foreground = styled.div`
+  position: relative;
+  z-index: 1;
+`;
+
+const Background = styled.div`
+  position: absolute;
+  z-index: 0;
 `;
 
 export default LikeButton;

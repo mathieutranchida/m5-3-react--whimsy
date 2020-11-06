@@ -15,11 +15,9 @@ const PoppingCircle = ({ size, color}) => {
 
 const PoppingCircleTransformAnnimation = keyframes`
     from {
-        opacity: 1;
         transform: scale(0);
     }
     to {
-        opacity: 0;
         transform: scale(1);
     }
 `;
@@ -35,7 +33,6 @@ const PoppingCircleOpacityAnnimation = keyframes`
 
 const Wrapper = styled.div`
     animation: ${PoppingCircleTransformAnnimation} 500ms forwards, ${PoppingCircleOpacityAnnimation} 900ms forwards;
-    position: absolute;
     border-radius: 50%;
 `;
 
