@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import UnstyledButton from '../UnstyledButton';
 
+import { TweetContext, TweetProvider } from "../TweetContext";
+
+
 const Action = ({ color, size, children, onClick }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
+  const {
+    isHovered,
+    setIsHovered,
+  } = useContext(TweetContext);
 
   return (
     <Wrapper
